@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link href="stylesheets/style.css" rel="stylesheet">
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<body ng-app="myApp" ng-controller="todoCtrl">
+<div class="container">
+<div class="well">
+<h2 class="text-center">Todo List</h2>
+</div>
+<form ng-submit="todoAdd()">
+  <input type="text" class="form-control bg-info" ng-model="todoInput" size="50" placeholder="Enter Task To List">
+</form>
+<br>
+<table class="table table-bordered bg-info">
+  <thead>
+    <tr>
+      <th></th>
+      <th>Task</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody ng-repeat="x in todoList">
+    <tr>
+      <td>
+        <input type="checkbox" class="checkbox" ng-model="x.done">
+      <td>
+        <textarea class="check" ng-model="x.todoText" cols="65" rows="1" readonly=""></textarea>
+      </td>
+      <td>
+        <span class="fa fa-trash trash" ng-click="remove(x._id)"></span>
+      </td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<script src=javascripts/list.js></script>
+<div>
+</body>
+</html>
